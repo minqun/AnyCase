@@ -1,0 +1,2308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Reneqiu Games2</title>
+    <meta name="keywords" content="Reneqiu Games"/>
+    <meta name="description" content="Welcome to our HTML5 gaming paradise, where every game is an adventure waiting to be discovered! Our platform features a rich variety of games, from action-packed thrillers to mind">
+    <meta property="og:title" content="Reneqiu Games">
+    <meta property="og:site_name" content="Reneqiu Games">
+    <meta property="og:description" content="Welcome to our HTML5 gaming paradise, where every game is an adventure waiting to be discovered! Our platform features a rich variety of games, from action-packed thrillers to mind">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://img.reneqiu.com/upload/default/20241014/3dc62a0108f733e0989d607dbb0f5258.png">
+    <meta property="og:url" content="http://reneqiu.com/">
+    <link rel="stylesheet" href="https://img.reneqiu.com/static/mb6/css/2.css">
+    <script defer src="https://img.reneqiu.com/static/mb6/js/308e47c135de4a29a86ae6dfbee30580.js"></script>
+    <script defer src="https://img.reneqiu.com/static/mb6/js/403f5664a3cd436280e76ca88944bade.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2617291108686317"
+     crossorigin="anonymous"></script>
+    <script>/* build: 0.2.1-io */
+/* build: 0.2.1-c */
+!function(t){"function"==typeof define&&define.amd?define(t):t()}((function(){"use strict";function t(t,e){if(t!==e)throw new TypeError("Cannot instantiate an arrow function")}class e{constructor(){this.pendingFetches=[],this.failedFetches=[],this.tier=null}customFetch(e){var i=this;let s=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};return fetch(e,s).then(function(n){var o=this;t(this,i);const a=this.pendingFetches.findIndex(function(i){return t(this,o),i.url===e&&JSON.stringify(i.options)===JSON.stringify(s)}.bind(this));return a>-1&&this.pendingFetches.splice(a,1),n}.bind(this)).catch(function(n){var o=this;t(this,i),console.error("Fetch for "+e+" failed:",n);const a=this.pendingFetches.findIndex(function(i){return t(this,o),i.url===e&&JSON.stringify(i.options)===JSON.stringify(s)}.bind(this));return a>-1&&(this.pendingFetches.splice(a,1),this.failedFetches.push({url:e,options:s})),n}.bind(this))}performFetch(t,e){return this.pendingFetches.push({url:t,options:e}),this.customFetch(t,e)}getPendingCount(){return this.pendingFetches.length}getPendingCountEnd(){var e=this;let i=new Date;return this.tier&&(clearInterval(this.tier),this.tier=null),new Promise(function(s){var n=this;t(this,e),this.tier=setInterval(function(){t(this,n),this.pendingFetches.length?new Date-i>4e3&&(s(!0),clearInterval(this.tier)):s(!0)}.bind(this),1e3)}.bind(this))}retryFailedFetches(){var e=this;const i=[...this.failedFetches];return this.failedFetches=[],new Promise(function(s){var n=this;t(this,e);let o=i.length;o?i.forEach(function(e){var i=this;t(this,n),this.performFetch(e.url,e.options).then(function(){t(this,i),0==--o&&s(o)}.bind(this)).catch(function(n){t(this,i),console.error("Retry of failed fetch for "+e.url+" failed again:",n),0==--o&&s(o)}.bind(this))}.bind(this)):s(0)}.bind(this))}}var i="0.0.1";class s{constructor(s){var n=this;this.fetchManager=new e,this.authorization="",this.startInterAction=new Date,this.tardom=null,this.LEVEL_TIME_COUNT_NAME="sdk_time_level",this.streanTime=this.getCache(this.LEVEL_TIME_COUNT_NAME)?new Date(this.getCache(this.LEVEL_TIME_COUNT_NAME)):new Date,this.version=i,this.cache="tp_sdk",this.BALCK_TAGIDS=["btn","abgcp","abgl","open-survey"],this.ADS_ORIGIN=["googleads.g.doubleclick.net","www.googleadservices.com","adclick.g.doubleclick.net","ad.doubleclick.net"],this.STAT_INFO={},this.URL=window.location.href,this.whiteIframeTrackList=["jscode_ads_show_detail"],this.webviewVisible=!0,this.SESSION_CODE="",this.custerSeting=Object.assign({SDK_MESSAGE:function(e){t(this,n),console.log(e)}.bind(this)},s?.custerSeting||[])}setConfigUrl(t){this.URL=t}setSessionCode(t){this.SESSION_CODE=t}setAdProbabilityEvents(t){console.log("测回调",t),this.STAT_INFO=t}setCache(t){let e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:this.cache;sessionStorage.setItem(e,t)}getCache(){let t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:this.cache;return sessionStorage.getItem(t)}removeCache(){let t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:this.cache;sessionStorage.removeItem(t)}awaitReportThenGo(){var e=this;return this.log("---------------等待请求完成---------------------"),new Promise(async function(i,s){var n=this;t(this,e),this.setTry(function(){t(this,n);const e=new Date,i=e-this.startInterAction+2e3;this.log("页面结束时间",i),this.track("jscode_action_time_ended",{time:i}),this.setCache(e,this.LEVEL_TIME_COUNT_NAME);const s=e-this.streanTime+2e3;this.track("jscode_time_ended",{time:s})}.bind(this)),this.log("---------------等待请求完成---------------------"),i(!0)}.bind(this))}async createOriginClick(t){this.log("点击来自",t);let e=t.getAttribute("target");e&&this.track("jscode_collect_a_"+e,{href:t?.href}),t?.href&&this.isIOS()&&window.webkit?.messageHandlers?.notifyClick?.postMessage?window.webkit?.messageHandlers.notifyClick.postMessage(t?.href):this.track("jscode_no_ads_href"),await this.awaitReportThenGo();var i=this.getAdClientMouseInfo(t),s=new MouseEvent("click",{bubbles:!0,cancelable:!0,...i});console.log("clientInfo",i,t),t.dispatchEvent(s),await this.promiseAwait(1e4),t.href&&(this.track("jscode_click_href",{href:t.href}),location.href=t.href)}clearCache(){sessionStorage.clear()}setTry(t){try{t()}catch(t){try{this.track("jscode_ads_message",{message:t})}catch(t){this.log("打点信息引发错误！！！",t),this.track("jscode_ads_send_message_error")}this.log("my test is error:: ",t)}}check_from_iframe(){let t=!1;try{window.top.location.origin,window.location.origin,t=!0}catch(e){t=!1}return t}tipEnv(){return this.check_from_iframe()?"locale":"iframe"}log(){const{log:t,warn:e,error:i}=console,s={log:t,warn:e,error:i};for(var n=arguments.length,o=new Array(n),a=0;a<n;a++)o[a]=arguments[a];return s.log?.call(this,this.tipEnv()+" [31m [sdk] [0m",...o)}isIOS(){return/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream}getDefaultParams(){let t={};try{t.sessionCode=this.SESSION_CODE,t.packageName=this.isIOS()?window.packageName:window.OSDK&&OSDK.getPackageName&&OSDK.getPackageName(),t.url=this.URL,t.href=window.location.href,t.version=this.version,t.lang=window.navigator.language,t.time=(new Date).getTime()}catch(t){this.log("error",t)}return t}getLogTime(){let t=new Date,e=t.getTimezoneOffset()+480,i=new Date(t.getTime()-60*e*1e3),s=i.getFullYear(),n=i.getMonth()+1;n=n<10?"0"+n:n;let o=i.getDate();o=o<10?"0"+o:o;let a=i.getHours();a=a<10?"0"+a:a;let r=i.getMinutes();r=r<10?"0"+r:r;let c=i.getSeconds();c=c<10?"0"+c:c;let l=i.getMilliseconds();return s+":"+n+":"+o+" "+a+":"+r+":"+c+"."+(l<10?"00"+l:l<100?"0"+l:l)}generate32BitRandom(){let t="";for(let e=0;e<8;e++)for(let e=0;e<4;e++)t+="0123456789ABCDEF"[Math.floor(16*Math.random())];return t}createback(e){var i=this,s=document.createElement("script");let n=e.replace("__random_code__",this.generate32BitRandom());s.src=n,s.onload=function(){t(this,i),console.log("dsp callback --------"),this.trackWater("jscode_dsp_callback")}.bind(this),s.onerror=function(){t(this,i),console.log("dsp callback -------- 1"),this.trackWater("jscode_dsp_callback")}.bind(this),document.body.appendChild(s)}getAdPlatform(t){return t.hasAttribute("id")?t.id.includes("google_ads_iframe")?"adx":"unknow":t.classList&&t.classList.value.includes("adsbygoogle")?"adsence":"unknow"}getAdsenceAdStatus(t){return t.getAttribute("data-ad-status")?"filled"==t.getAttribute("data-ad-status")?"filled":"unfilled":"none"}getAdxAdStatus(t){return t.querySelector("iframe")?"true"==t.querySelector("iframe").getAttribute("data-load-complete")?"filled":"unfilled":"none"}lookAdsStatus(e){var i=this;let s=[];return e.forEach(function(e,n){t(this,i),e.setAttribute("data-index",n);const o="IFRAME"==e.nodeName?e:e.querySelector("iframe");s.push({status:"adx"==this.getAdPlatform(e)?this.getAdxAdStatus(e):this.getAdsenceAdStatus(e),dom:e,id:o?.id||e?.id||"",iframeDom:o,platform:this.getAdPlatform(e),type:this.adTypeCallback(e),index:n})}.bind(this)),s}trackWater(t,e){switch(t){case"jscode_ad_show":for(let t in this.STAT_INFO.imp_callback){let e=this.STAT_INFO.imp_callback[t];e&&this.createback(e)}break;case"jscode_ads_click":for(let t in this.STAT_INFO.click_callback){let e=this.STAT_INFO.click_callback[t];e&&this.createback(e)}}try{e=Object.assign({...this.getDefaultParams()},e),window.HyperSDK&&HyperSDK?.trackImmediately&&HyperSDK.trackImmediately(t,JSON.stringify(e))}catch(t){console.log("打点失败")}}track(t,e){switch(t){case"jscode_ads_show_ad":for(let t in this.STAT_INFO.imp_callback){let e=this.STAT_INFO.imp_callback[t];e&&this.createback(e)}break;case"jscode_ads_click":for(let t in this.STAT_INFO.click_callback){let e=this.STAT_INFO.click_callback[t];e&&this.createback(e)}}try{e=Object.assign({...this.getDefaultParams()},e),this.log("打点",t,e),this.isIOS()?window.webkit?.messageHandlers?.trackImmediately?.postMessage?window.webkit?.messageHandlers?.trackImmediately?.postMessage([t,JSON.stringify(e)]):window.webkit?.messageHandlers?.tracker?.postMessage(t):window.OSDK&&OSDK?.trackImmediately&&OSDK.trackImmediately(t,JSON.stringify(e))}catch(t){this.log("error !!!!!!!!!!",t)}}scrollElement(){var e=this;let i=document.scrollingElement||window;const s=window.innerHeight;if(i.scrollHeight&&s==i.scrollHeight){document.querySelectorAll("*").forEach(function(n){t(this,e);const o=n.scrollHeight;o>s&&o!=n.offsetHeight&&(i=n.parentNode,i.scrollHeight==s&&(i=n))}.bind(this))}return i}getAdClientMouseInfo(t){const e=t&&t?.querySelector("iframe")||t;if(!e)return;const i=e.getBoundingClientRect(),s=Math.random()>.3?.5*Math.random()+.3:.2*Math.random()+.3,n=Math.random()>.3?Math.random()>.7?.5*Math.random()+.2:.5*Math.random()+.3:.2*Math.random()+.3,o={clientX:s*i.width+i.x,clientY:n*i.height+i.y+this.scrollElement()?.scrollTop};return this.log("clientRect::",i,o),o}getDomMouseInfo(t){const e=t.getBoundingClientRect(),i=Math.random()>.3?.5*Math.random()+.3:.2*Math.random()+.3,s=Math.random()>.3?Math.random()>.7?.5*Math.random()+.2:.5*Math.random()+.3:.2*Math.random()+.3,n={clientX:i*e.width+e.x,clientY:s*e.height+e.y};return this.log("clientRect::",e,n),n}filterNoClickCheck(e){var i=this;let s=!0;return"none"==e?.style["pointer-events"]&&(s=!1),Array.from(e?.querySelectorAll("iframe")).length&&Array.from(e?.querySelectorAll("iframe")).find(function(e){return t(this,i),"about:blank"==e.src}.bind(this))&&(s=!1),"none"==e?.style["pointer-events"]&&(s=!1),s}async createClick(t){var e=this.getAdClientMouseInfo(t),i=new MouseEvent("click",{bubbles:!0,cancelable:!0,...e});this.log("创建点击-frame",t,e),t.dispatchEvent(i)}promiseAwait(e,i){var s=this;return e=this.randomTime(e,i),new Promise(function(i,n){var o=this;t(this,s),setTimeout(function(){t(this,o),i(e)}.bind(this),e)}.bind(this))}async pointerEvent(t){var e=this.getAdClientMouseInfo(t),i=new PointerEvent("pointerdown",{bubbles:!0,cancelable:!0,pointerId:1,pointerType:"touch",isPrimary:!0,...e});t.dispatchEvent(i),await this.promiseAwait(100,50);var s=new PointerEvent("pointerup",{bubbles:!0,cancelable:!0,pointerId:1,pointerType:"touch",isPrimary:!0,...e});t.dispatchEvent(s);var n=new MouseEvent("click",{bubbles:!0,cancelable:!0,...e});t.dispatchEvent(n)}getAdsInfo(){var e=this;let i={img:"",title:"",desc:"",href:""};if("iframe"!==this.tipEnv())return i;let s=document.querySelector(".GoogleActiveViewElement"),n=document.querySelector("#google_image_div");if(s||n){let o=(s||n).querySelectorAll('a[href^="https://www.googleadservices.com/pagead/aclk"], a[href^="https://ad.doubleclick.net/pcs/click"], a[href^="https://googleads.g.doubleclick.net/aclk"]');if(o&&(o=Array.from(o)),o.forEach(function(s){if(t(this,e),s.dataset&&s.dataset.asochTargets&&(s.dataset.asochTargets.includes("titleClk")&&(i.title+=s.innerHTML+" "),s.dataset.asochTargets.includes("bodyClk")&&(i.desc=s.innerHTML),s.dataset.asochTargets.includes("ochTitle")&&(i.title+=s.innerHTML+" "),s.dataset.asochTargets.includes("ochUrl")&&(i.desc=s.innerHTML),s.dataset.asochTargets.includes("ochImage"))){let t=s.querySelector(".image"),e=window.getComputedStyle(t);i.img=e.backgroundImage}if(s.querySelector('img[alt="Advertisement"]')){let t=s.querySelector('img[alt="Advertisement"]');i.img=t.src}if(s.querySelector('img[class^="i-amphtml-fill-content"]')){let t=s.querySelector('img[class^="i-amphtml-fill-content"]');i.img=t.src}i.href=s.href}.bind(this)),i.img){const t=/url\(["']([^"']+)["']\)/.exec(i.img);i.img=t?t[1]:i.img}return i}}setMuted(){var e=this;this.setTry(function(){t(this,e);for(var i=document.getElementsByTagName("audio"),s=0;s<i?.length;s++)i[s].muted=!0;var n=document.getElementsByTagName("video");for(s=0;s<n?.length;s++)n[s].muted=!0}.bind(this))}randomTime(t){let e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:2e3;return t=Number(t),Math.random()*e+t}cteateDiv(t,e){const i=document.querySelector("html"),s=document.createElement("div");s.className="iddddddd---cccc",s.style.position="fixed",s.style.width="10px",s.style.height="10px",s.style.zIndex="9999",s.style.backgroundColor="red",s.style.borderRadius="50%",s.style.left=t+"px",s.style.top=e+"px",console.log("坐标cteateDiv：",t,e,window.devicePixelRatio),i.appendChild(s)}createDivByDom(t){const e=t.getBoundingClientRect().x+1,i=t.getBoundingClientRect().y+1;this.cteateDiv(e,i)}getClickDom(){var e=this;let i=arguments.length>0&&void 0!==arguments[0]?arguments[0]:document;var s=Array.from(i.querySelectorAll("a")),n=this.ADS_ORIGIN,o=["HTML","SCRIPT","META","LINK","P"];const a=[];let r=null;const c=function(i){for(t(this,e);i;){if(this.BALCK_TAGIDS.includes(i.id))return!0;i=i.parentNode}return!1}.bind(this);for(let i in s){let r=s[i];if(!o.includes(r.nodeName)){if(c(r))continue;if(r.href&&n.find(function(i){return t(this,e),r.href.includes(i)}.bind(this))){a.push(r);continue}}}if(a.length>0){r=a[Math.floor(Math.random()*a.length)]}return r}isParentHidden(t){let e=t.closest("*");for(;e;){if("none"===window.getComputedStyle(e).display)return!0;e=e.parentElement}return!1}}class n extends s{constructor(t){super(t)}setDomAttrVisit(t){let e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"block";t.style.setProperty("display",e,"important")}checkCookieTipDialog(){var e=this;let i=arguments.length>0&&void 0!==arguments[0]?arguments[0]:.9;this.setTry(function(){var s=this;t(this,e);const n=async function(){t(this,s);let e=document.querySelector(".fc-footer-buttons-container .fc-footer-buttons"),o=document.querySelector(".cc-btn.cc-dismiss");e?(i>Math.random()?this.createClick(e.querySelector(".fc-primary-button")):(this.createClick(e.querySelector(".fc-secondary-button")),await this.promiseAwait(2e3),this.createClick(document.querySelector(".fc-data-preferences-accept-all"))),this.checkCookieCache=null,cancelAnimationFrame(this.checkCookieCache)):o?o.click():this.checkCookieCache=requestAnimationFrame(n)}.bind(this);this.checkCookieCache=requestAnimationFrame(n)}.bind(this))}closeAdsPopup(){var e=this;this.setTry(function(){t(this,e),document.querySelector(".ads-popup")&&"none"!=document.querySelector(".ads-popup").style.display&&this.pointerEvent(document.querySelector(".van-popup__close-icon")),document.querySelector("#dialogAd")&&"none"!=document.querySelector("#dialogAd").style.display&&this.pointerEvent(document.querySelector("#closeButton")),document.querySelector(".uni-modal")&&"none"!=document.querySelector(".uni-modal").style.display&&this.pointerEvent(document.querySelector(".uni-modal__btn_default")),document.querySelector(".uni-modal__btn_default")&&document.querySelector(".uni-modal__btn_default").click(),document.querySelector("#m2_bot_captcha")&&(document.querySelector("#m2_bot_captcha").style.display="none")}.bind(this))}setCacheDefault(t){this.isCahceDefault=!0,this.cacheId=t,this.setCache(t)}deviceRectWhereDom(e){var i=this;let s=[],n=window.innerHeight;return this.lookAdsStatus(e).forEach(function(e){var o=this;t(this,i),this.setTry(function(){if(t(this,o),e.dom&&e.dom.style&&"none"!=e.dom.style.display&&"filled"==e.status){let t=e.dom.getBoundingClientRect();t.top>=0&&t.top<=n-t.height/2&&s.push(e)}}.bind(this))}.bind(this)),s}deviceRectWhereDomUnSetAd(e){var i=this;let s=[],n=window.innerHeight;return e.forEach(function(e){var o=this;t(this,i),this.setTry(function(){if(t(this,o),e.dom&&e.dom.style&&"none"!=e.dom.style.display&&"filled"==e.status){let t=e.dom.getBoundingClientRect();t.top>=0&&t.top<=n-t.height/2&&s.push(e)}}.bind(this))}.bind(this)),s}scrollAdTo(t){if(t)if("number"==typeof t)this.deviceScrollWindow?.scrollTo({top:t,behavior:"smooth"});else{let e=t.getBoundingClientRect().top;this.deviceScrollWindow?.scrollTo({top:e,behavior:"smooth"}),this.custerSeting.SCROLL_AD_CALLBACK(t)}else this.log("没有广告位")}scrollTo(t){this.deviceScrollWindow?.scrollTo({top:t,left:0,behavior:"smooth"})}scrollToPosition(){let t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:window,e=arguments.length>2&&void 0!==arguments[2]?arguments[2]:2e3,i=arguments.length>1?arguments[1]:void 0,s=performance.now(),n=t.pageYOffset||document.documentElement.scrollTop;requestAnimationFrame((function o(){const a=performance.now()-s;if(a>=e)t.scrollTo({top:i,behavior:"smooth"});else{const s=n+a/e*(i-n);t.scrollTo({top:s,behavior:"smooth"}),requestAnimationFrame(o)}}))}getElementTop(t){const e=t.getBoundingClientRect(),i=this.scrollElement(),s=window.pageYOffset||i?.scrollTop;return e.top+s}debounce(e,i){let s;return function(){var n=this;const o=this,a=arguments;clearTimeout(s),s=setTimeout(function(){t(this,n),e.apply(o,a)}.bind(this),i)}}adTypeCallback(t){let e="",i=window.innerHeight,s=t?.closest("ins")?t.closest("ins"):t?.closest("div")?t?.closest("div"):t,n=s?.getBoundingClientRect(),o=t.style?.height?parseFloat(t.style.height):250;if(t&&n){e=i!=n.height&&"100vh"!=s.style?.height&&o!=i||"fixed"!=s.style?.position?"fixed"==s.style?.position?"banner":(n.height>=150||n.height,"other"):"full"}return e}getElesParams(e){var i=this;return{num:e.length,adsId:e.map(function(e){return t(this,i),e.iframeDom?.id}.bind(this)),type:e.map(function(e){return t(this,i),e.type}.bind(this))}}getIframeById(t){const e=document.querySelector('[data-google-query-id="'+t+'"]')||document.querySelector("#"+CSS.escape(t));return"IFRAME"==e?.nodeName?e:e?.querySelector("iframe")}getNodeTypeById(t){const e=this.getIframeById(t);return console.dir(e),console.dir(this.adTypeCallback(e)),this.adTypeCallback(e)}getAdsId(t){let{data:e,source:i={}}=t;if("string"==typeof e)try{e=JSON.parse(e)}catch(t){}return e?.adId||i?.frameElement?.id||i?.frameElement?.previousElementSibling?.getAttribute("data-google-query-id")}collectLeaveTimeInterval(){var e=this;console.log("开始收集webview状态变化"),window.addEventListener("visibilitychange",function(){t(this,e),console.log("webview状态变化",document.visibilityState),"hidden"===document.visibilityState?(console.log("webview进入后台"),this.webviewVisible=!1):"visible"===document.visibilityState&&(console.log("webview进入前台"),this.webviewVisible=!0)}.bind(this))}}class o{constructor(){this.callbacks={},this.intervalId=null,this.activeCallbackNames=[]}addCallback(e,i){var s=this;this.intervalId||(this.intervalId=setInterval(function(){t(this,s);for(const t of this.activeCallbackNames)this.activeCallbackNames.includes(t)&&this.callbacks[t]()}.bind(this),1e3)),this.callbacks[e]=i,this.activeCallbackNames.push(e)}removeCallback(e){var i=this;this.activeCallbackNames=this.activeCallbackNames.filter(function(s){return t(this,i),s!==e}.bind(this)),0===this.activeCallbackNames.length&&(clearInterval(this.intervalId),this.intervalId=null)}}function a(){var e=this;let i=["a","b","c","d","e","f","g","h","i","g","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],[s,n]=[Math.floor(4*Math.random()+1),Math.floor(8*Math.random()+17)];return i=i.sort(function(){return t(this,e),.4-Math.random()}.bind(this)).slice(s,n).slice(0,19).join(""),Math.floor((new Date).getTime()*Math.random()*100)+i}function r(){let t=h.getCookie("algorithm");return t||(t=a(),h.setCookie("algorithm",t,-1)),t}function c(){var t,e=navigator.userAgent,i=e.match(/NetType\/\w+/)?e.match(/NetType\/\w+/)[0]:"NetType/other";switch(i=i.toLowerCase().replace("nettype/","")){case"wifi":t="wifi";break;case"5g":t="5g";break;case"4g":t="4g";break;case"3g":case"3gnet":t="3g";break;case"2g":t="2g";break;default:t="网线连接"}return t}function l(){const t=navigator.userAgent.toLowerCase();let e="";const i={IE:window.ActiveXObject||"ActiveXObject"in window,Chrome:t.includes("chrome")&&t.includes("safari"),Firefox:t.includes("firefox"),Opera:t.includes("opera"),Safari:t.includes("safari")&&!t.includes("chrome"),Edge:t.includes("edge"),QQBrowser:/qqbrowser/.test(t),WeixinBrowser:/MicroMessenger/i.test(t)};for(let s in i)if(i[s]){let i="";if("IE"==s)i=t.match(/(msie\s|trident.*rv:)([\w.]+)/)&&t.match(/(msie\s|trident.*rv:)([\w.]+)/)[2];else if("Chrome"==s){for(const t in navigator.mimeTypes)"application/360softmgrplugin"==navigator.mimeTypes[t].type&&(s="360");i=t.match(/chrome\/([\d.]+)/)&&t.match(/chrome\/([\d.]+)/)[1]}else"Firefox"==s?i=t.match(/firefox\/([\d.]+)/)&&t.match(/firefox\/([\d.]+)/)[1]:"Opera"==s?i=t.match(/opera\/([\d.]+)/)&&t.match(/opera\/([\d.]+)/)[1]:"Safari"==s?i=t.match(/version\/([\d.]+)/)&&t.match(/version\/([\d.]+)/)[1]:"Edge"==s?i=t.match(/edge\/([\d.]+)/)&&t.match(/edge\/([\d.]+)/)[1]:"QQBrowser"==s&&(i=t.match(/qqbrowser\/([\d.]+)/)&&t.match(/qqbrowser\/([\d.]+)/)[1]);e=s,e+=parseInt(i)}return e}const h={setCookie:function(t,e,i){if(-1===i)document.cookie=t+"="+e;else{var s=new Date;s.setTime(s.getTime()+i),document.cookie=t+"="+e+";expires="+s.toUTCString()}},getCookie:function(t){var e=RegExp(t+"=([^;]+)"),i=document.cookie.match(e);return i?i[1]:""},removeCookie:function(t){this.setCookie(t,null,-1)}};function d(t){if(!t)return{};const e=t.attributes,i={};for(const t of e)i[t.name]=t.value;return i}class u extends n{constructor(t){super(),this.version=i,this.AUTO_CLASS="sdk-insert-class",this.SCROLL_IN_INFO="data-scroll-info",this.adFillBox=[],this.adShowBox=[],this.session_id=a(),this.pv=!1,this.engagementStartTime=new Date,this.intervalManager=new o,this.ENTE_GAME_URL="entergame.vip",this.SHOPLUS_URL="apk.shoplus.net",this.appkey="",this.appsecret="",this.config={appkey:"476613CAFDFBE2D17BF81480",appsecret:"46DFA409F9F94E7E92D75F5CC2E986EE",PV_REPORT:!0,AD_CLICK_REPORT:!0,AD_FILL_REPORT:!0,AD_SHOW_REPORT:!0,SCROLL_REPORT:!0,GLOBAL_CLICK:!0}}initConfig(){}init(){this.initConfig(),this.adBuildAssociation(),this.hook(),this.pushEvent("jscode_init_sdk",{})}listenAdFill(){var e=this;this.intervalManager.addCallback("listen-ad-fill",function(){var i=this;t(this,e);this.getAdFillList().forEach(function(e){var s=this;if(t(this,i),!this.adFillBox.find(function(i){return t(this,s),i==e.id}.bind(this))){this.adFillBox.push(e.id);let t={adsId:e.id,type:e.type,status:e.status,platform:e.platform,ads_index:e.index,ads_str:d(e.dom)};this.pushEvent("jscode_ads_fill_all",t),this.setGa("jscode_ads_fill_all",t)}}.bind(this))}.bind(this))}listenAdShow(){var e=this;this.intervalManager.addCallback("listen-ad-show",function(){var i=this;t(this,e);this.getAdShowList().forEach(function(e){var s=this;if(t(this,i),!this.adShowBox.find(function(i){return t(this,s),i==e.id}.bind(this))){this.adShowBox.push(e.id);let t={adsId:e.id,type:e.type,status:e.status,platform:e.platform,ads_index:e.index,ads_str:d(e.dom)};this.pushEvent("jscode_ads_show_ad",t),this.setGa("jscode_ads_show_ad",t)}}.bind(this))}.bind(this))}listenAdClick(){var e=this;window.focus(),window.addEventListener("blur",function(){var i=this;t(this,e);var s=document.activeElement;if("iframe"==s?.tagName.toLowerCase()&&(s.hasAttribute("data-google-query-id")||s.hasAttribute("data-load-complete"))){const e=this.getAdFillList(),n=e.findIndex(function(e){return t(this,i),e.id===s.id}.bind(this)),o=e.find(function(e){return t(this,i),e.id===s.id}.bind(this));let a={adsId:o.id,type:o.type,status:o.status,platform:o.platform,ads_index:n,ads_str:d(o.dom)};this.pushEvent("jscode_ads_click",a),this.setGa("jscode_ads_click",a)}else console.log("no ad area");setTimeout((function(){window.focus()}),0)}.bind(this))}listenPageScroll(){var e=this;let i=0;addEventListener("scroll",this.debounce(function(){t(this,e);var s=document.documentElement.scrollTop||document.body.scrollTop;let n=s-i;i=s,console.log("scroll距离",n),this.pushEvent("jscode_scroll",{scroll:n}),this.setGa("jscode_scroll",{scroll:n})}.bind(this),3e3))}listenGlobalClick(){var e=this;document.addEventListener("click",function(i){t(this,e);let s={x:i.clientX,y:i.clientY};this.pushEvent("jscode_global_click",s),this.setGa("jscode_global_click",s)}.bind(this))}hook(){this.config.PV_REPORT&&this.pushEvent("jscode_bc_pv",{}),this.config.AD_FILL_REPORT&&this.listenAdFill(),this.config.AD_SHOW_REPORT&&this.listenAdShow(),this.config.AD_CLICK_REPORT&&this.listenAdClick(),this.config.SCROLL_REPORT&&this.listenPageScroll(),this.config.GLOBAL_CLICK&&this.listenGlobalClick()}getBeseParams(t,e){const i={url:window.location.hostname,href:window.location.href,version:this.version,network:c(),browser:l(),algorithm:r(),lang:window.navigator.language,time:(new Date).getTime(),referer:window.document.referrer,session_id:this.session_id,device_info:(s=navigator.userAgent.toLowerCase(),n=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream,o=/macintosh|mac os x/i.test(navigator.userAgent)&&!window.MSStream,a=/Android/.test(navigator.userAgent)&&!window.MSStream,s.indexOf("win32")>=0||s.indexOf("wow32")>=0?"windows32 pc":s.indexOf("win64")>=0||s.indexOf("wow64")>=0?"windows64 pc":n?"iphone":o?"mac":a?"andriod":"unknow")};var s,n,o,a;const h=Object.assign(i,e);return{eventName:t,eventInfo:JSON.stringify(h),googleId:r(),productVersion:"1.0"}}pushEvent(t){let e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};console.dir("pushEvent",t,e);let i=this.config.appkey,s=this.config.appsecret;const n=btoa(i+":"+s),o={...this.getBeseParams(t,e),token:n};this.fetchManager.performFetch("https://api.weixiangltd.net/simpleStat",{method:"POST",body:JSON.stringify(o),headers:{"Content-Type":"application/json",Authorization:"Basic "+n}})}throttle(t){let e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:500,i=0;return function(){let s=(new Date).getTime();s-i>e&&(t(),i=s)}}debounce(e){let i=arguments.length>1&&void 0!==arguments[1]?arguments[1]:500,s=null;return function(){var n=this;s&&clearTimeout(s),s=setTimeout(function(){t(this,n),e()}.bind(this),i)}}adBuildAssociation(){var e=this;this.intervalManager.addCallback("listen-loaded-ad-end",function(){t(this,e),this.checkAdsenceInsertAd(),this.checkAdxInsertAd(),this.setGtagScript()}.bind(this))}getViewAdList(){return this.lookAdsStatus(document.querySelectorAll("."+this.AUTO_CLASS+"["+this.SCROLL_IN_INFO+"=true]"))||[]}setGtagScript(){var e=this,i=arguments;if(window?.gtag)this.pv||(this.pv=!0,this.setGa("jscode_bc_pv",{}));else try{const s=Array.from(document.querySelectorAll("script")).find(function(i){return t(this,e),i.src.includes("www.googletagmanager.com/gtag/js")}.bind(this)).src,n=new URL(s).searchParams.get("id");window.dataLayer=window.dataLayer||[],window.gtag=function(){t(this,e),dataLayer.push(i)}.bind(this),gtag("js",new Date),gtag("config",n),this.log("主动添加ga",n)}catch(t){this.log("gtag添加失败")}}setGa(t,e){try{gtag("event",t,{...this.getBeseParams(t,e)}),this.log("主动上报ga")}catch(t){this.log("这个站点没有ga",t)}}setGaInterAction(){let t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:this.engagementStartTime;try{gtag("event","user_engagement",{engagement_time_msec:new Date-t}),this.log("主动上报ga")}catch(t){this.log("这个站点没有ga",t)}}getAdShowList(){var e=this;return this.getAdFillList().filter(function(i){t(this,e);let s=i.iframeDom.getBoundingClientRect();return s.width>0&&s.height>0}.bind(this))}getAdFillList(){var e=this;return this.lookAdsStatus(document.querySelectorAll("."+this.AUTO_CLASS)).filter(function(i){return t(this,e),"filled"==i.status}.bind(this))}getAdUnFillList(){var e=this;return this.lookAdsStatus(document.querySelectorAll("."+this.AUTO_CLASS)).filter(function(i){return t(this,e),"filled"!=i.status}.bind(this))}getAdList(){return this.lookAdsStatus(document.querySelectorAll("."+this.AUTO_CLASS))}getAdByType(e){var i=this;return this.lookAdsStatus(document.querySelectorAll("."+this.AUTO_CLASS)).filter(function(s){return t(this,i),s.type==e}.bind(this))}checkAdsenceInsertAd(){var e=this;let i=document.querySelectorAll("ins[class^=adsbygoogle]");this.setTry(function(){t(this,e);for(let t=0;t<i.length;t++)Array.from(i[t].classList).includes(this.AUTO_CLASS)||i[t].classList.add(this.AUTO_CLASS)}.bind(this))}checkAdxInsertAd(){var e=this;let i=document.querySelectorAll("div[id^=google_ads_iframe");this.setTry(function(){t(this,e);for(let t=0;t<i.length;t++)Array.from(i[t].classList).includes(this.AUTO_CLASS)||i[t].classList.add(this.AUTO_CLASS)}.bind(this))}}window.collect||window.appTheme||window.OSDK||window.HyperSDK||(window.collect=new u({}),window.collect.init())}));
+</script>
+  </head>
+  <body>
+     <!--<div id="preloader" style="position:fixed;inset:0;z-index:9999;background-color:#fff">-->
+    <!--  <div>-->
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="siteMenu" class="navbar navbar-expand-lg navbar-box-shadow">
+      <form id="searchForm" class="navbar-search ps-3 bg-light" action="/search.html" method="get">
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="fas fa-lg fa-search"></i>
+          </span>
+          <input name="keyword" autocomplete="off" class="form-control form-control-xl" type="search" placeholder="Search site">
+          <button class="btn btn-outline-secondary" type="submit">Ok</button></div>
+        <div>
+          <button type="button" class="close btn" data-toggle="search">
+            <i class="fas fa-xmark"></i>
+          </button>
+        </div>
+        <div class="results"></div>
+      </form>
+      <div class="container">
+        <a class="order-1 navbar-brand" href="/">
+          <img src="https://img.reneqiu.com/upload/default/20241014/3dc62a0108f733e0989d607dbb0f5258.png" alt="Reneqiu Games" title="Reneqiu Games"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#primaryMenu" title="Toggle menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="order-2 ml-lg-auto">
+          <div class="navbar-tool">
+            <a class="navbar-tool-icon-box" href="#" data-toggle="search" title="Search site">
+              <i class="fas fa-lg fa-search"></i>
+            </a>
+          </div>
+        </div>
+        <div class="offcanvas offcanvas-start order-1" tabindex="-1" id="primaryMenu">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- Menu-->
+            <ul class="navbar-nav">
+                <li >
+                <a class="nav-link " href="/" >HOME</a>
+                </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Game categories</a>
+                <ul class="dropdown-menu">
+                      
+           <li>
+                    <a class="dropdown-item" href="/topic_12/">Action</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_8/">Adventure</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_1/">Arcade</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_11/">BabyHazel</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_19/">Bejeweled</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_9/">Boys</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_3/">Clicker</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_17/">Cooking</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_2/">Girls</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_4/">Hypercasual</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_13/">IO</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_16/">Multiplayer</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_6/">Player</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_5/">Puzzle</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_10/">Racing</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_15/">Shooting</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_14/">Soccer</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_7/">Sports</a></li>
+              
+           <li>
+                    <a class="dropdown-item" href="/topic_18/">Stickman</a></li>
+                             </ul>
+              </li>
+              <li class="nav-item">
+               <a class="nav-link " href="/blog">BLOG</a>
+              </li>
+              <li class="nav-item">
+               <a class="nav-link " href="/games">ALL Games</a>
+              </li>
+               <li class="navbar-item">
+               <a class="nav-link " href="/about-us">About Us</a>
+              </li>
+
+              <!--<li class="nav-item">-->
+              <!-- <a class="nav-link " href="/privacy-policy">Privacy Policy</a>-->
+              <!--</li>-->
+              <!--  <li class="nav-item">-->
+              <!-- <a class="nav-link " href="/terms-conditions">Terms &amp; Conditions</a>-->
+              <!--</li>-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main>
+<!--start--> 
+<div style="text-align: center; margin-bottom: 20px;margin-top: 20px" >
+<!-- reneqiu.com_1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2617291108686317"
+     data-ad-slot="2383294833"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<!--end--> 
+      <!-- Category bar -->
+      <div class="gameCats my-4">
+        <div class="container">
+          <!--categories-->
+          <div class="d-none d-md-block">
+            <ul class="categories list-group list-group-horizontal">
+                	         
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_12/" title="Action">Action</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_8/" title="Adventure">Adventure</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_1/" title="Arcade">Arcade</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_11/" title="BabyHazel">BabyHazel</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_19/" title="Bejeweled">Bejeweled</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_9/" title="Boys">Boys</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_3/" title="Clicker">Clicker</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_17/" title="Cooking">Cooking</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_2/" title="Girls">Girls</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_4/" title="Hypercasual">Hypercasual</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_13/" title="IO">IO</a> 
+            </li>
+                      
+            <li class="list-group-item flex-fill text-center">
+              <a href="/topic_16/" title="Multiplayer">Multiplayer</a> 
+            </li>
+                             
+                
+             
+            </ul>
+          </div>
+          <select class="form-select d-md-none" onchange="if(this.value!=''){location=this.value}">
+            <option value="">[Select category]</option>
+             
+           <option value="/topic_12/">Action</option>
+              
+           <option value="/topic_8/">Adventure</option>
+              
+           <option value="/topic_1/">Arcade</option>
+              
+           <option value="/topic_11/">BabyHazel</option>
+              
+           <option value="/topic_19/">Bejeweled</option>
+              
+           <option value="/topic_9/">Boys</option>
+              
+           <option value="/topic_3/">Clicker</option>
+              
+           <option value="/topic_17/">Cooking</option>
+              
+           <option value="/topic_2/">Girls</option>
+              
+           <option value="/topic_4/">Hypercasual</option>
+              
+           <option value="/topic_13/">IO</option>
+              
+           <option value="/topic_16/">Multiplayer</option>
+              
+           <option value="/topic_6/">Player</option>
+              
+           <option value="/topic_5/">Puzzle</option>
+              
+           <option value="/topic_10/">Racing</option>
+              
+           <option value="/topic_15/">Shooting</option>
+              
+           <option value="/topic_14/">Soccer</option>
+              
+           <option value="/topic_7/">Sports</option>
+              
+           <option value="/topic_18/">Stickman</option>
+                        </select>
+          <!--categories--></div>
+      </div>
+      <!-- /Category bar -->
+      <div class="home-carousel">
+        <div class="container">
+          <div class="card border-0 box-shadow-lg p-3">
+            <div class="cs-carousel cs-controls-inside cs-controls-onhover">
+              <div class="cs-carousel-inner" data-carousel-options="{&quot;items&quot;:2, &quot;autoplay&quot;:true, &quot;controls&quot;:true, &quot;nav&quot;:false, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 16},&quot;576&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 16},&quot;768&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 14}, &quot;992&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 16}, &quot;1200&quot;:{&quot;items&quot;:5, &quot;gutter&quot;: 20}}}">
+              
+                       
+                <div>
+                  <div class="card card-curved-body box-shadow card-slide">
+                    <a href="/games/Sprunked-remastered/">
+                      <div class="card-slide-inner">
+                        <img class="card-img" width="300" height="200" src="https://cdn.dnscc.cc/sprunked/1092118455_480x360.webp" alt="Sprunked remastered !" title="Sprunked remastered !">
+                        <h3>Sprunked remastered !</h3>
+                        <div class="card-body">Sprunked remastered !</div></div>
+                    </a>
+                  </div>
+                </div>
+                          
+                <div>
+                  <div class="card card-curved-body box-shadow card-slide">
+                    <a href="/games/Max-and-Eleven-BFF-Strange-DressUp/">
+                      <div class="card-slide-inner">
+                        <img class="card-img" width="300" height="200" src="https://cdn.dnscc.cc/gamesimg/5ljp1vxenzi_512x384.webp" alt="Max and Eleven BFF Strange DressUp" title="Max and Eleven BFF Strange DressUp">
+                        <h3>Max and Eleven BFF Strange DressUp</h3>
+                        <div class="card-body">Max and Eleven BFF Strange DressUp</div></div>
+                    </a>
+                  </div>
+                </div>
+                          
+                <div>
+                  <div class="card card-curved-body box-shadow card-slide">
+                    <a href="/games/King-of-Jungle/">
+                      <div class="card-slide-inner">
+                        <img class="card-img" width="300" height="200" src="https://cdn.dnscc.cc/gamesimg/d4w2revc1ke_512x384.webp" alt="King of Jungle" title="King of Jungle">
+                        <h3>King of Jungle</h3>
+                        <div class="card-body">King of Jungle</div></div>
+                    </a>
+                  </div>
+                </div>
+                          
+                <div>
+                  <div class="card card-curved-body box-shadow card-slide">
+                    <a href="/games/Candy-Block/">
+                      <div class="card-slide-inner">
+                        <img class="card-img" width="300" height="200" src="https://cdn.dnscc.cc/gamesimg/vuxeirzqiyf_512x384.webp" alt="Candy Block" title="Candy Block">
+                        <h3>Candy Block</h3>
+                        <div class="card-body">Candy Block</div></div>
+                    </a>
+                  </div>
+                </div>
+                          
+                <div>
+                  <div class="card card-curved-body box-shadow card-slide">
+                    <a href="/games/Super-Bounce/">
+                      <div class="card-slide-inner">
+                        <img class="card-img" width="300" height="200" src="https://cdn.dnscc.cc/gamesimg/s3nxrwdcolx_512x384.webp" alt="Super Bounce" title="Super Bounce">
+                        <h3>Super Bounce</h3>
+                        <div class="card-body">Super Bounce</div></div>
+                    </a>
+                  </div>
+                </div>
+                          
+                <div>
+                  <div class="card card-curved-body box-shadow card-slide">
+                    <a href="/games/Russian-Trucks-Differences/">
+                      <div class="card-slide-inner">
+                        <img class="card-img" width="300" height="200" src="https://cdn.dnscc.cc/gamesimg/w44jqdqw1ew_512x384.webp" alt="Russian Trucks Differences" title="Russian Trucks Differences">
+                        <h3>Russian Trucks Differences</h3>
+                        <div class="card-body">Russian Trucks Differences</div></div>
+                    </a>
+                  </div>
+                </div>
+                          
+                <div>
+                  <div class="card card-curved-body box-shadow card-slide">
+                    <a href="/games/HexaLau/">
+                      <div class="card-slide-inner">
+                        <img class="card-img" width="300" height="200" src="https://cdn.dnscc.cc/gamesimg/h2akoatq4vj_512x384.webp" alt="HexaLau" title="HexaLau">
+                        <h3>HexaLau</h3>
+                        <div class="card-body">HexaLau</div></div>
+                    </a>
+                  </div>
+                </div>
+                          
+                <div>
+                  <div class="card card-curved-body box-shadow card-slide">
+                    <a href="/games/Trucks-Slide/">
+                      <div class="card-slide-inner">
+                        <img class="card-img" width="300" height="200" src="https://cdn.dnscc.cc/gamesimg/3vwy34iw2lb_512x384.webp" alt="Trucks Slide" title="Trucks Slide">
+                        <h3>Trucks Slide</h3>
+                        <div class="card-body">Trucks Slide</div></div>
+                    </a>
+                  </div>
+                </div>
+                          
+                <div>
+                  <div class="card card-curved-body box-shadow card-slide">
+                    <a href="/games/Tropical-Paradise-Difference/">
+                      <div class="card-slide-inner">
+                        <img class="card-img" width="300" height="200" src="https://cdn.dnscc.cc/gamesimg/rk5w324zoc1_512x384.webp" alt="Tropical Paradise Difference" title="Tropical Paradise Difference">
+                        <h3>Tropical Paradise Difference</h3>
+                        <div class="card-body">Tropical Paradise Difference</div></div>
+                    </a>
+                  </div>
+                </div>
+                          
+                <div>
+                  <div class="card card-curved-body box-shadow card-slide">
+                    <a href="/games/Candy-Cupid/">
+                      <div class="card-slide-inner">
+                        <img class="card-img" width="300" height="200" src="https://cdn.dnscc.cc/gamesimg/lrgrielc5ot_512x384.webp" alt="Candy Cupid" title="Candy Cupid">
+                        <h3>Candy Cupid</h3>
+                        <div class="card-body">Candy Cupid</div></div>
+                    </a>
+                  </div>
+                </div>
+                   
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-4">
+        <!-- ad -->
+        <div style="height:40px" ></div>
+        <!-- /Ad --></div>
+
+      <div class="container">
+        <div class="row games-cards">
+            
+                      
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Baby Hazel Learns Shapes">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/lew1vitmyzh_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Baby Hazel Learns Shapes">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Baby Hazel Learns Shapes</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/lew1vitmyzh_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Baby Hazel Learns Shapes">
+                <a href="/games/Baby-Hazel-Learns-Shapes/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Air Combat Slide">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/1cmzp0lmevy_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Air Combat Slide">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Air Combat Slide</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/1cmzp0lmevy_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Air Combat Slide">
+                <a href="/games/Air-Combat-Slide/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="maya">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ceiyqtq5rkh_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="maya">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>maya</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ceiyqtq5rkh_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="maya">
+                <a href="/games/maya/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Xmas Sudoku">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/yu5tag10ay4_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Xmas Sudoku">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Xmas Sudoku</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/yu5tag10ay4_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Xmas Sudoku">
+                <a href="/games/Xmas-Sudoku/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+   
+ <!--start--> 
+<div style="text-align: center; margin-bottom: 20px;margin-top: 20px" >
+<!-- reneqiu.com_2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2617291108686317"
+     data-ad-slot="7444049823"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<!--end--> 
+             
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Sweet Candy Mania">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/nnwvp5z0yvg_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Sweet Candy Mania">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Sweet Candy Mania</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/nnwvp5z0yvg_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Sweet Candy Mania">
+                <a href="/games/Sweet-Candy-Mania/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Brain Teaser">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/kcnnguemndl_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Brain Teaser">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Brain Teaser</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/kcnnguemndl_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Brain Teaser">
+                <a href="/games/Brain-Teaser/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Swamp Attack Online">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/aqgouh4hrv2_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Swamp Attack Online">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Swamp Attack Online</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/aqgouh4hrv2_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Swamp Attack Online">
+                <a href="/games/Sw-Attack-Online/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Gimme Pipe">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/sui11aq5n4y_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Gimme Pipe">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Gimme Pipe</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/sui11aq5n4y_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Gimme Pipe">
+                <a href="/games/Gimme-Pipe/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Hop Ballz 3D">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/hfmoxtjfgqt_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Hop Ballz 3D">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Hop Ballz 3D</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/hfmoxtjfgqt_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Hop Ballz 3D">
+                <a href="/games/Hop-Ballz-3D/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Goblin run">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/n4tjlzeb2xz_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Goblin run">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Goblin run</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/n4tjlzeb2xz_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Goblin run">
+                <a href="/games/Goblin-run/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Stylish Purses Mahjong">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/uedwqbmpwra_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Stylish Purses Mahjong">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Stylish Purses Mahjong</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/uedwqbmpwra_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Stylish Purses Mahjong">
+                <a href="/games/Stylish-Purses-Mahjong/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Formula Jigsaw Puzzle">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/rmkfvx0ofbh_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Formula Jigsaw Puzzle">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Formula Jigsaw Puzzle</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/rmkfvx0ofbh_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Formula Jigsaw Puzzle">
+                <a href="/games/Formula-Jigsaw-Puzzle/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Cube Shіft">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/g5lwhltzkoe_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Cube Shіft">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Cube Shіft</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/g5lwhltzkoe_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Cube Shіft">
+                <a href="/games/Cube-Shіft/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Connect Me">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/y1cqi2oy4el_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Connect Me">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Connect Me</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/y1cqi2oy4el_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Connect Me">
+                <a href="/games/Connect-Me/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Bubble Shooter Fruits Wheel">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/4w1xpzulwwb_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Bubble Shooter Fruits Wheel">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Bubble Shooter Fruits Wheel</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/4w1xpzulwwb_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Bubble Shooter Fruits Wheel">
+                <a href="/games/Bubble-Shooter-Fruits-Wheel/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="BFF Princess Back To School">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/lvy004iy00q_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="BFF Princess Back To School">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>BFF Princess Back To School</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/lvy004iy00q_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="BFF Princess Back To School">
+                <a href="/games/BFF-Princess-Back-To-School/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Stunt Simulator">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/wk4tgizvabq_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Stunt Simulator">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Stunt Simulator</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/wk4tgizvabq_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Stunt Simulator">
+                <a href="/games/Stunt-Simulator/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Crazy Road">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/32pl1occeoz_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Crazy Road">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Crazy Road</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/32pl1occeoz_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Crazy Road">
+                <a href="/games/Crazy-Road/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Hammered Out">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/2lcreudpw5d_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Hammered Out">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Hammered Out</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/2lcreudpw5d_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Hammered Out">
+                <a href="/games/Hammered-Out/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Go Fishing">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/1kz5ige1koe_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Go Fishing">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Go Fishing</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/1kz5ige1koe_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Go Fishing">
+                <a href="/games/Go-Fishing/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Easy Kids Coloring Bat">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ht0gx0g5ze5_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Easy Kids Coloring Bat">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Easy Kids Coloring Bat</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ht0gx0g5ze5_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Easy Kids Coloring Bat">
+                <a href="/games/Easy-Kids-Coloring-Bat/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Funny Doggy Puzzle">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/k0jyys2r5js_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Funny Doggy Puzzle">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Funny Doggy Puzzle</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/k0jyys2r5js_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Funny Doggy Puzzle">
+                <a href="/games/Funny-Doggy-Puzzle/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Magic Stone Jewels Match 3">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/alnviexjmxa_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Magic Stone Jewels Match 3">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Magic Stone Jewels Match 3</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/alnviexjmxa_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Magic Stone Jewels Match 3">
+                <a href="/games/Magic-Stone-Jewels-Match-3/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Knife Climb">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/jc2oaytnkli_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Knife Climb">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Knife Climb</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/jc2oaytnkli_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Knife Climb">
+                <a href="/games/Knife-Climb/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Party.io 2">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/vo4bsfxomkb_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Party.io 2">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Party.io 2</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/vo4bsfxomkb_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Party.io 2">
+                <a href="/games/Party-io-2/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="You vs uoY">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/434xnebyd5i_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="You vs uoY">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>You vs uoY</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/434xnebyd5i_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="You vs uoY">
+                <a href="/games/You-vs-uoY/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Sift Renegade Brawl">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/twqmxtxnrsp_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Sift Renegade Brawl">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Sift Renegade Brawl</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/twqmxtxnrsp_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Sift Renegade Brawl">
+                <a href="/games/Sift-Renegade-Brawl/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Cat Pixel Mahjong">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/4hxn2t5skod_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Cat Pixel Mahjong">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Cat Pixel Mahjong</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/4hxn2t5skod_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Cat Pixel Mahjong">
+                <a href="/games/Cat-Pixel-Mahjong/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Jewel Dash">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/p1qai4eycki_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Jewel Dash">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Jewel Dash</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/p1qai4eycki_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Jewel Dash">
+                <a href="/games/Jewel-Dash/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Match Shapes">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/3qpgozjgogi_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Match Shapes">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Match Shapes</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/3qpgozjgogi_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Match Shapes">
+                <a href="/games/Match-Shapes/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Wedding Artist">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ujzaiuqsn5n_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Wedding Artist">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Wedding Artist</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ujzaiuqsn5n_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Wedding Artist">
+                <a href="/games/Wedding-Artist/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Kick The General">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/jstsr0ba5xg_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Kick The General">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Kick The General</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/jstsr0ba5xg_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Kick The General">
+                <a href="/games/Kick-The-General/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Free Educational Games">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/rami3moifhm_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Free Educational Games">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Free Educational Games</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/rami3moifhm_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Free Educational Games">
+                <a href="/games/Free-Educational-Games/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Puppy Blast">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/hbouvnpbmgv_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Puppy Blast">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Puppy Blast</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/hbouvnpbmgv_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Puppy Blast">
+                <a href="/games/Puppy-Blast/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Pet Care Mahjong">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/xwgarbjdked_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Pet Care Mahjong">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Pet Care Mahjong</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/xwgarbjdked_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Pet Care Mahjong">
+                <a href="/games/Pet-Care-Mahjong/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="2048 Physics">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/43qsqses01g_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="2048 Physics">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>2048 Physics</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/43qsqses01g_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="2048 Physics">
+                <a href="/games/2048-Physics/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Penalty Star Stiker">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/tdeosveu3j3_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Penalty Star Stiker">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Penalty Star Stiker</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/tdeosveu3j3_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Penalty Star Stiker">
+                <a href="/games/Penalty-Star-Stiker/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="AlienEscape">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/sicq5ts4cel_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="AlienEscape">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>AlienEscape</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/sicq5ts4cel_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="AlienEscape">
+                <a href="/games/AlienEscape/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Ancient Memory">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ttcpatsgohv_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Ancient Memory">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Ancient Memory</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ttcpatsgohv_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Ancient Memory">
+                <a href="/games/Ancient-Memory/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Football World League Cup penality Final Kicks">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/r0qcgnrdopx_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Football World League Cup penality Final Kicks">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Football World League Cup penality Final Kicks</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/r0qcgnrdopx_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Football World League Cup penality Final Kicks">
+                <a href="/games/Football-World-League-Cup-penality-Final-Kicks/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="space shooter 101">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/osbyhu1mo32_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="space shooter 101">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>space shooter 101</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/osbyhu1mo32_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="space shooter 101">
+                <a href="/games/space-shooter-101/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="No Mercy - Isometric Zombie Shooter Survival">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ffz5aqw4vz3_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="No Mercy - Isometric Zombie Shooter Survival">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>No Mercy - Isometric Zombie Shooter Survival</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ffz5aqw4vz3_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="No Mercy - Isometric Zombie Shooter Survival">
+                <a href="/games/No-Mercy-Isometric-Zombie-Shooter-Survival/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Transformers PUZZLE ">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/dyyd32ycapw_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Transformers PUZZLE ">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Transformers PUZZLE </h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/dyyd32ycapw_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Transformers PUZZLE ">
+                <a href="/games/Transformers-PUZZLE/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Cars Coloring Game">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/xww54cfr5yx_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Cars Coloring Game">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Cars Coloring Game</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/xww54cfr5yx_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Cars Coloring Game">
+                <a href="/games/Cars-Coloring-Game/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Stock Car Racing">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ktdosjsuq0u_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Stock Car Racing">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Stock Car Racing</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ktdosjsuq0u_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Stock Car Racing">
+                <a href="/games/Stock-Car-Racing/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Kingdom of Ninja">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/h4chdgabnhw_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Kingdom of Ninja">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Kingdom of Ninja</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/h4chdgabnhw_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Kingdom of Ninja">
+                <a href="/games/Kingdom-of-Ninja/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Knots Line Puzzle Game">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/hugo41klylx_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Knots Line Puzzle Game">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Knots Line Puzzle Game</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/hugo41klylx_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Knots Line Puzzle Game">
+                <a href="/games/Knots-Line-Puzzle-Game/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Ambulance Coloring">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/s13mzltekqu_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Ambulance Coloring">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Ambulance Coloring</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/s13mzltekqu_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Ambulance Coloring">
+                <a href="/games/Ambulance-Coloring/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Barbie Coloring Book">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/p3x43mpxayn_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Barbie Coloring Book">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Barbie Coloring Book</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/p3x43mpxayn_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Barbie Coloring Book">
+                <a href="/games/Barbie-Coloring-Book/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Dora - Find Seven Differences">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/5o1kaqd2p22_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Dora - Find Seven Differences">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Dora - Find Seven Differences</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/5o1kaqd2p22_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Dora - Find Seven Differences">
+                <a href="/games/Dora-Find-Seven-Differences/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Blend It Perfect">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ptmn1d03040_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Blend It Perfect">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Blend It Perfect</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/ptmn1d03040_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Blend It Perfect">
+                <a href="/games/Blend-It-Perfect/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Sniper Elite">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/34oozrznnz3_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Sniper Elite">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Sniper Elite</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/34oozrznnz3_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Sniper Elite">
+                <a href="/games/Sniper-Elite/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Little Cute Summer Fairies Puzzle">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/bftnsbve2yz_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Little Cute Summer Fairies Puzzle">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Little Cute Summer Fairies Puzzle</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/bftnsbve2yz_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Little Cute Summer Fairies Puzzle">
+                <a href="/games/Little-Cute-Summer-Fairies-Puzzle/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="BMW M4 GT3 Slide">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/npam2flgfjo_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="BMW M4 GT3 Slide">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>BMW M4 GT3 Slide</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/npam2flgfjo_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="BMW M4 GT3 Slide">
+                <a href="/games/BMW-M4-GT3-Slide/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Merge Animal 2 : Farmland">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/qsn5yfhx3fj_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Merge Animal 2 : Farmland">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Merge Animal 2 : Farmland</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/qsn5yfhx3fj_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Merge Animal 2 : Farmland">
+                <a href="/games/Merge-Animal-2-Farmland/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Bit Jump">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/eav2pxmdbk4_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Bit Jump">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Bit Jump</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/eav2pxmdbk4_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Bit Jump">
+                <a href="/games/Bit-Jump/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Zombies Outbreak Arena">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/di0i2tuqthi_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Zombies Outbreak Arena">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Zombies Outbreak Arena</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/di0i2tuqthi_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Zombies Outbreak Arena">
+                <a href="/games/Zombies-Outbreak-Arena/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="The panda brother">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/2pifhhji4g3_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="The panda brother">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>The panda brother</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/2pifhhji4g3_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="The panda brother">
+                <a href="/games/The-panda-brother/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Design My Home">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/o21pmgi1ief_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Design My Home">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Design My Home</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/o21pmgi1ief_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Design My Home">
+                <a href="/games/Design-My-Home/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="TRZ Athletic Games">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/qwdkmg1we2o_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="TRZ Athletic Games">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>TRZ Athletic Games</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/qwdkmg1we2o_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="TRZ Athletic Games">
+                <a href="/games/TRZ-Athletic-Games/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Above and Below Solitaire">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/0odhudqgtxq_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Above and Below Solitaire">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Above and Below Solitaire</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/0odhudqgtxq_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Above and Below Solitaire">
+                <a href="/games/Above-and-Below-Solitaire/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="WormRoyale.io">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/q2zga0coqis_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="WormRoyale.io">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>WormRoyale.io</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/q2zga0coqis_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="WormRoyale.io">
+                <a href="/games/WormRoyale-io/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="PAW Patrol Coloring Book html5">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/oijabqercmy_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="PAW Patrol Coloring Book html5">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>PAW Patrol Coloring Book html5</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/oijabqercmy_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="PAW Patrol Coloring Book html5">
+                <a href="/games/PAW-Patrol-Coloring-Book-html5/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Cartoon Coloring Book Game">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/hpantmqg2jl_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Cartoon Coloring Book Game">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Cartoon Coloring Book Game</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/hpantmqg2jl_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Cartoon Coloring Book Game">
+                <a href="/games/Cartoon-Coloring-Book-Game/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="HALLOWEEN SPECIAL PARTY CAKE">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/id5mgbiwifj_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="HALLOWEEN SPECIAL PARTY CAKE">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>HALLOWEEN SPECIAL PARTY CAKE</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/id5mgbiwifj_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="HALLOWEEN SPECIAL PARTY CAKE">
+                <a href="/games/HALLOWEEN-SPECIAL-PARTY-CAKE/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="game col-6 col-lg-3 col-md-4 mb-4 card-container" title="Hula Hoops Rush">
+            <div class="flip">
+              <div class="card front">
+                <div>
+                  <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/5a1hyzxa0h0_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Hula Hoops Rush">
+                  <div class="tags">
+                    <span class="badge badge-new">HOT</span></div>
+                </div>
+                <div class="body">
+                  <h3>Hula Hoops Rush</h3>
+                  <div class="star-rating" title="4">
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="fas fa-fw fa-star active"></i>
+                    <i class="far fa-fw fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card back">
+                <img loading="lazy" class="card-img-top" data-src="https://cdn.dnscc.cc/gamesimg/5a1hyzxa0h0_512x384.webp" src="https://img.reneqiu.com/static/mb6/images/loading.gif" alt="Hula Hoops Rush">
+                <a href="/games/Hula-Hoops-Rush/">
+                  <span class="btn btn-primary play">Play</span></a>
+              </div>
+            </div>
+          </div>
+   
+<script>
+    function lazyLoadImages() {
+    var lazyImages = document.querySelectorAll('img[data-src]');
+    
+    lazyImages.forEach(function(img) {
+        if(isElementInViewport(img)) {
+            img.src = img.getAttribute('data-src');
+            img.removeAttribute('data-src');
+        }
+    });
+}
+
+function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= window.innerHeight &&
+        rect.right <= window.innerWidth
+    );
+}
+
+window.addEventListener('scroll', lazyLoadImages);
+window.addEventListener('resize', lazyLoadImages);
+window.addEventListener('load', lazyLoadImages);
+</script>
+
+          <!--<div class="col-12 mb-4 card-container">-->
+          <!--  <div class="partners bg-secondary">-->
+          <!--    <strong>Our partners</strong>-->
+          <!--    <br>-->
+          <!--   </div>-->
+          <!--</div>-->
+        </div>
+        <!--/.row-->
+              <!-- Intro text -->
+      <div class="intro py-2 py-md-3 px-3 bg-secondary container fancyLinks">
+        <h1>Reneqiu Games</h1>
+        <p>Welcome to our HTML5 gaming paradise, where every game is an adventure waiting to be discovered! Our platform features a rich variety of games, from action-packed thrillers to mind-bending puzzles. With high-quality graphics and intuitive controls, our games are designed to provide endless entertainment for all players. Join our vibrant community, compete for the top spot on the leaderboards, and uncover new challenges. The excitement never ends here—start playing and discover your next favorite game today!</p>
+      </div>
+      <!-- /Intro text -->
+         <style>
+            .btn-primary {
+    /*background-color: #00596d;*/
+    color: #FFF;
+}
+.btn-container {
+    margin: 20px 0 60px;
+    text-align: center;
+}
+.btn-container .btn, .btn-container .btn-highlight, .btn-container .btn-primary, .btn-container .btn-neutral, .btn-container .btn-transparent {
+    padding: 10px 60px;
+}
+.btn, .btn-highlight, .btn-primary, .btn-neutral, .btn-transparent {
+    display: inline-block;
+    box-sizing: border-box;
+    /*background-color: #eee;*/
+    /*color: #333;*/
+    padding: 10px 20px;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,0.2);
+}
+        </style>
+        <div class="text-center mb-4">
+         	 <div class="btn-container">
+					<a href="/games" class="btn-primary">
+				Show all
+		</a>
+	</div>
+        </div>
+      </div>
+      <!-- /Games grid --></main>
+     <a class="btn-scroll-top" href="#top" title="↑" data-scroll="">
+      <span class="btn-scroll-top-tooltip text-muted font-size-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon fas fa-chevron-up"></i>
+    </a>
+    <footer class="footer px-2">
+      <div class="container-fluid">
+        <div class="row py-2 row-gap-2">
+          <div class="col-md-7 d-flex justify-content-center justify-content-md-start">
+            <div>
+                <a href="/contact-us">Contact US</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms-conditions">Terms &amp; Conditions</a>
+                <a href="/sitemap/article.xml">sitemap</a></div>
+          </div>
+          <div class="col-md-5 d-flex justify-content-center justify-content-md-end cl-effect-2">
+            <div>Copyright © 2024 Reneqiu Games. All rights Reserved.</div></div>
+        </div>
+      </div>
+    </footer>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C13M5CYZ8E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C13M5CYZ8E');
+</script>
+  </body>
+
+</html>
